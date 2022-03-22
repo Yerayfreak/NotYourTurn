@@ -23,7 +23,9 @@ export async function storeAllPositions(map){
         if (token.isOwner)
         {
             let position = tokens[i]._validPosition;
-            map.set(token.id, position);
+            if(map){
+                map.set(token.id, position);
+            }
         }
     }
 }
@@ -35,7 +37,9 @@ export async function setTokenPositionOld(tokens, map){
         {
             let position = tokens[i].locationOld;
             await token.document.update(position);
-            map.set(token.id, position);
+            if(map){
+                map.set(token.id, position);
+            }
         }
     }
 }
@@ -47,7 +51,9 @@ export async function setTokenPositionNew(tokens, map){
         {
             let position = tokens[i].location;
             await token.document.update(position);
-            map.set(token.id, position);
+            if(map){
+                map.set(token.id, position);
+            }
         }
     }
 }
